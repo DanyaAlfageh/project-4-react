@@ -11,7 +11,15 @@ import ChangePassword from './auth/components/ChangePassword'
 
 import Example from './example/Example'
 
+import ShowExample from './example/ShowExample'
+
+import CreateExample from './example/CreateExample'
+
+import UpdateExample from './example/UpdateExample'
+
 import AlertDismissible from './auth/components/AlertDismissible'
+
+import ImageUpload from './imageUpload/ImageUpload'
 
 class App extends Component {
   constructor () {
@@ -53,8 +61,20 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/examples' render={() => (
+          <AuthenticatedRoute user={user} exact path='/examples' render={() => (
             <Example alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/examples/:id' render={(props) => (
+            <ShowExample alert={this.alert} user={user} exampleId={props.match.params.id} />
+          )} />
+          <AuthenticatedRoute user={user} path='/examples/:id/edit' render={(props) => (
+            <UpdateExample alert={this.alert} user={user} exampleId={props.match.params.id} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/create' render={() => (
+            <CreateExample alert={this.alert} user={user} />
+          )} />
+          <Route path='/upload' render={() => (
+            <ImageUpload />
           )} />
         </main>
       </React.Fragment>
