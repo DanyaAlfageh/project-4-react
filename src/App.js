@@ -21,6 +21,8 @@ import AlertDismissible from './auth/components/AlertDismissible'
 
 import ImageUpload from './imageUpload/ImageUpload'
 
+import ImageDisplay from './imageUpload/ImagesDisplay'
+
 class App extends Component {
   constructor () {
     super()
@@ -75,6 +77,9 @@ class App extends Component {
           )} />
           <Route path='/upload' render={() => (
             <ImageUpload />
+          )} />
+          <Route path='/display' render={() => (
+            <ImageDisplay />
           )} />
         </main>
       </React.Fragment>

@@ -16,3 +16,10 @@ export const upload = (newFile) => {
     console.log(error)
   })
 }
+
+export const index = () => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/uploads'
+  })
+}
