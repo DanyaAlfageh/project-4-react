@@ -1,8 +1,10 @@
-$charcoal: #bbb;
+$charcoal: rgb(17, 12, 12);
 
 .main-header {
   align-items: center;
   border-bottom: 1px solid $charcoal;
+  background-color: $charcoal;
+  color:white;
   display: flex;
   height: 100px;
   padding: 0 20px;
