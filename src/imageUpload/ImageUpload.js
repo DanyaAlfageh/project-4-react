@@ -8,18 +8,19 @@ class ImageUpload extends Component {
     this.setState({ selectedFile: event.target.files[0] })
   }
 
-  uploadHandler = () => {
+  uploadHandler = event => {
     event.preventDefault()
-    const imageFile = this.state.selectedFile
+    const imageFile = new FormData()
+    imageFile.append('image', this.state.selectedFile)
     console.log(imageFile)
     upload(imageFile)
-      .then(() => alert('cretaed'))
+      .then((res) => console.log('response ' + res))
       .catch(err => console.log(err))
   }
 
   render () {
     return (
-      <form>
+      <form encType='multipart/form-data'>
             Image
         <input type="file"
           name="image"

@@ -6,8 +6,13 @@ export const upload = (newFile) => {
   return axios({
     method: 'POST',
     url: apiUrl + '/uploads',
-    data: {
-      image: newFile
-    }
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
+    data: newFile
+  }).then(response => {
+    console.log(response)
+  }).catch(error => {
+    console.log(error)
   })
 }
