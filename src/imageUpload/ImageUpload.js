@@ -11,9 +11,10 @@ class ImageUpload extends Component {
   uploadHandler = event => {
     event.preventDefault()
     const imageFile = new FormData()
+    const user = this.props.user
     imageFile.append('image', this.state.selectedFile)
     console.log(imageFile)
-    upload(imageFile)
+    upload(imageFile, user)
       .then((res) => console.log('response ' + res))
       .catch(err => console.log(err))
   }

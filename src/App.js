@@ -1,27 +1,20 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
-
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-
 import Example from './example/Example'
-
 import ShowExample from './example/ShowExample'
-
 import CreateExample from './example/CreateExample'
-
 import UpdateExample from './example/UpdateExample'
-
 import AlertDismissible from './auth/components/AlertDismissible'
-
 import ImageUpload from './imageUpload/ImageUpload'
-
 import ImageDisplay from './imageUpload/ImagesDisplay'
+import ShowImage from './imageUpload/ShowImage'
 
 class App extends Component {
   constructor () {
@@ -75,11 +68,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/create' render={() => (
             <CreateExample alert={this.alert} user={user} />
           )} />
-          <Route path='/upload' render={() => (
-            <ImageUpload />
+          <AuthenticatedRoute user={user} exact path='/upload' render={() => (
+            <ImageUpload alert={this.alert} user={user} />
           )} />
-          <Route path='/display' render={() => (
-            <ImageDisplay />
+          <AuthenticatedRoute user={user} exact path='/display' render={() => (
+            <ImageDisplay alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/display/:id' render={(props) => (
+            <ShowImage alert={this.alert} user={user} imageId={props.match.params.id} />
           )} />
         </main>
       </React.Fragment>
