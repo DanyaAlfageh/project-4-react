@@ -46,3 +46,24 @@ $charcoal: #ccc;
     max-width: 200px;
   }
 }
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5%;
+}
+
+.carspadds{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.carspadds img{
+  position: relative;
+  width:130px;
+  height:70px;
+}

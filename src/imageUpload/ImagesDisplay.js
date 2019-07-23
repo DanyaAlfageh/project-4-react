@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { index, destroy } from './api'
 import { Link } from 'react-router-dom'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
 
 class ImagesDisplay extends Component {
     state ={
@@ -29,17 +33,31 @@ class ImagesDisplay extends Component {
         .catch(err => console.log(err))
     }
     render () {
+      console.log(this.state.images)
       return (
-        <div>
-          {this.state.images.map((image, index) => (
-            <div key={index}>
-              <Link to={`/display/${image._id}`}>
-                <img src={image.url} alt='none' />
-              </Link>
-              <button onClick={ () => this.destroyHandle(this.props.user, image._id)}>Delete</button>
-            </div>))
-          }
-        </div>
+        <Container fluid className='center-content'>
+          <Row>
+            {this.state.images.map((image, index) => (
+              <Col xs={6} md={4} key={index} className="carspadds">
+                <Card>
+                  <Card.Img variant="top" src={image.url} alt='none' />
+                  <Card.Body>
+                    <Link to={`/display/${image._id}`}>
+                      <Card.Title>Card title</Card.Title>
+                    </Link>
+                    <Card.Text>
+                    </Card.Text>
+                    <button onClick={ () => this.destroyHandle(this.props.user, image._id)}>Delete</button>
+                  </Card.Body>
+                  <Card.Footer>
+                    <small className="text-muted">created: {image.createdAt}</small>
+                  </Card.Footer>
+                </Card>
+              </Col>
+            ))
+            }
+          </Row>
+        </Container>
       )
     }
 }
