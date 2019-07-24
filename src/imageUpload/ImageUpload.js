@@ -26,12 +26,12 @@ class ImageUpload extends Component {
 
   render () {
     return (
-      <Container className='center-content'>
+      <Container className='auth-form'>
         <Row className="justify-content-lg-center">
           <Form encType='multipart/form-data'>
             <Form.Group as={Row} controlId="ImageUpload">
               <Col sm="2">
-                <Form.Label>Image : </Form.Label>
+                <Form.Label>Image</Form.Label>
               </Col>
               <Col sm="10">
                 <input type="file"

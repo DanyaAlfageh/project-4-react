@@ -38,12 +38,12 @@ class ImagesDisplay extends Component {
         <Container fluid className='center-content'>
           <Row>
             {this.state.images.map((image, index) => (
-              <Col xs={6} md={4} key={index} className="carspadds">
-                <Card>
+              <Col xs lg="2" key={index} className="carspadds">
+                <Card style={{ width: '13rem' }}>
                   <Card.Img variant="top" src={image.url} alt='none' />
                   <Card.Body>
                     <Link to={`/display/${image._id}`}>
-                      <Card.Title>Card title</Card.Title>
+                      <Card.Title>View Image</Card.Title>
                     </Link>
                     <Card.Text>
                     </Card.Text>

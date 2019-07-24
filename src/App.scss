@@ -51,7 +51,7 @@ $charcoal: #ccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 5%;
+  margin: auto;
 }
 
 .carspadds{
@@ -64,6 +64,19 @@ $charcoal: #ccc;
 
 .carspadds img{
   position: relative;
-  width:130px;
-  height:70px;
+  height:150px;
+  width:206px;
+}
+
+.center-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px;
+  padding: 15px;
+}
+
+.center-image img{
+  height:500px;
+  width:500px;
 }

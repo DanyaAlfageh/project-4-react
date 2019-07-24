@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { show } from './api'
 import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class ShowImage extends Component {
     state = {
@@ -21,10 +24,14 @@ class ShowImage extends Component {
     }
     render () {
       return (
-        <div>
-          <Link to='/display'>Back </Link>
-          <img src={this.state.image.url} alt=""/>
-        </div>
+        <Container fluid className='center-image'>
+          <Row>
+            <Col><Link to='/display'>Back </Link></Col>
+          </Row>
+          <Row>
+            <Col><img src={this.state.image.url} alt=""/></Col>
+          </Row>
+        </Container>
       )
     }
 }
