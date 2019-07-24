@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import { withRouter } from 'react-router-dom'
 
 class ImageUpload extends Component {
   state = { selectedFile: null }
@@ -21,6 +22,7 @@ class ImageUpload extends Component {
     console.log(imageFile)
     upload(imageFile, user)
       .then((res) => console.log('response ' + res))
+      .then(() => this.props.history.push('/display'))
       .catch(err => console.log(err))
   }
 
@@ -49,4 +51,4 @@ class ImageUpload extends Component {
   }
 }
 
-export default ImageUpload
+export default withRouter(ImageUpload)
