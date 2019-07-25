@@ -47,3 +47,18 @@ export const destroy = (user, imageId) => {
     }
   })
 }
+
+export const update = (user, tag, imageId) => {
+  return axios({
+    method: 'PUT',
+    url: apiUrl + `/uploads/${imageId}`,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      tags: {
+        tag: tag
+      }
+    }
+  })
+}

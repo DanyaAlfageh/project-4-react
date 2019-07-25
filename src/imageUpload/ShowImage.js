@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { show } from './api'
 import { Link } from 'react-router-dom'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Tag from './Tags'
 
 class ShowImage extends Component {
     state = {
@@ -24,14 +22,20 @@ class ShowImage extends Component {
     }
     render () {
       return (
-        <Container fluid className='center-image'>
-          <Row>
-            <Col><Link to='/display'>Back </Link></Col>
-          </Row>
-          <Row>
-            <Col><img src={this.state.image.url} alt=""/></Col>
-          </Row>
-        </Container>
+        <div>
+          <Tag user={this.props.user} imageId={this.props.imageId}/>
+          <br /><br /><br />
+          <Link to='/display'>Back </Link>
+          <br /><br /><br />
+          <ul>
+            {this.state.image.tags ? this.state.image.tags.map((tag, index) =>
+              <li key={index}>{tag.tag}</li>) : '0'}
+          </ul>
+          <br /><br /><br />
+          <div>
+            <img src={this.state.image.url} alt=""/>
+          </div>
+        </div>
       )
     }
 }
