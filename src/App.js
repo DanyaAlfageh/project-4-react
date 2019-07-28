@@ -15,6 +15,7 @@ import AlertDismissible from './auth/components/AlertDismissible'
 import ImageUpload from './imageUpload/ImageUpload'
 import ImageDisplay from './imageUpload/ImagesDisplay'
 import ShowImage from './imageUpload/ShowImage'
+import Search from './imageUpload/SearchByTag'
 
 class App extends Component {
   constructor () {
@@ -44,6 +45,9 @@ class App extends Component {
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Search alert={this.alert} setUser={this.setUser} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />

@@ -45,11 +45,6 @@ class ImagesDisplay extends Component {
                     <Link to={`/display/${image._id}`}>
                       <Card.Title>View Image</Card.Title>
                     </Link>
-                    <ul>
-                      {image.tags ? image.tags.map((tag, index) =>
-                        <li key={index}>{tag.tag}</li>) : 'No tags'
-                      }
-                    </ul>
                     <button onClick={ () => this.destroyHandle(this.props.user, image._id)}>Delete</button>
                   </Card.Body>
                   <Card.Footer>
