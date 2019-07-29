@@ -28,6 +28,13 @@ export const index = user => {
   })
 }
 
+export const search = tag => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + `/uploads/tag/s=${tag}`
+  })
+}
+
 export const show = (user, imageId) => {
   return axios({
     method: 'GET',
