@@ -34,8 +34,8 @@ class ShowImage extends Component {
     }
     render () {
       return (
-        <Container className='center-content'>
-          <Row className={borderbox}>
+        <Container style={{ marginTop: '3rem' }}>
+          <Row className={borderbox} >
             <Col>
               <br />
               <Link to='/display'>Back </Link>

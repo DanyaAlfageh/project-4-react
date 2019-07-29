@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
+import * as moment from 'moment'
 
 class ImagesDisplay extends Component {
     state ={
@@ -48,7 +49,7 @@ class ImagesDisplay extends Component {
                     <button onClick={ () => this.destroyHandle(this.props.user, image._id)}>Delete</button>
                   </Card.Body>
                   <Card.Footer>
-                    <small className="text-muted">created: {image.createdAt}</small>
+                    <small className="text-muted">created: {moment(image.createdAt).format('DD/MM/YYYY')}</small>
                   </Card.Footer>
                 </Card>
               </Col>

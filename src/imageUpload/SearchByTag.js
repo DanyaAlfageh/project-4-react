@@ -38,27 +38,29 @@ class SearchByTag extends Component {
       }
       render () {
         return (
-          <Card><br /><br /><br /><br />
-            <Card.Body>
-              <form onSubmit={this.handleSubmit}>
+          <div style={{ marginTop: '3rem' }}>
+            <Card><br /><br /><br /><br />
+              <Card.Body>
+                <form onSubmit={this.handleSubmit}>
                 Tag Name :
-                <input onChange={this.handleChange} type="text" name="title" />
-                <button type='submit'>Search</button>
-              </form>
-              <Container>
-                <h1> you hav got {this.state.result.length} results </h1>
-                <br /><br /><br /><br />
-                <Row>
-                  {this.state.result.map((image, index) => (
-                    <Col key={index} className={frame}>
-                      <Image src={image.url} alt="no image" style={{ padding: '3rem' }} thumbnail />
-                    </Col>
-                  ))
-                  }
-                </Row>
-              </Container>
-            </Card.Body>
-          </Card>
+                  <input onChange={this.handleChange} type="text" name="title" />
+                  <button type='submit'>Search</button>
+                </form>
+                <Container><br /><br /><br /><br />
+                  <h1> you hav got {this.state.result.length} results </h1>
+                  <br /><br /><br /><br />
+                  <Row>
+                    {this.state.result.map((image, index) => (
+                      <Col key={index} className={frame}>
+                        <Image src={image.url} alt="no image" style={{ padding: '3rem' }} thumbnail />
+                      </Col>
+                    ))
+                    }
+                  </Row>
+                </Container>
+              </Card.Body>
+            </Card>
+          </div>
         )
       }
 }
