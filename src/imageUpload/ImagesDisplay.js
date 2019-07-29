@@ -41,15 +41,14 @@ class ImagesDisplay extends Component {
             {this.state.images.map((image, index) => (
               <Col xs lg="2" key={index} className="carspadds">
                 <Card style={{ width: '13rem' }}>
-                  <Card.Img variant="top" src={image.url} alt='none' />
+                  <Link to={`/display/${image._id}`}>
+                    <Card.Img variant="top" src={image.url} alt='none' />
+                  </Link>
                   <Card.Body>
-                    <Link to={`/display/${image._id}`}>
-                      <Card.Title>View Image</Card.Title>
-                    </Link>
                     <button onClick={ () => this.destroyHandle(this.props.user, image._id)}>Delete</button>
                   </Card.Body>
                   <Card.Footer>
-                    <small className="text-muted">created: {moment(image.createdAt).format('DD/MM/YYYY')}</small>
+                    <small className="text-muted">created {(moment(moment() - moment(image.createdAt)).format('D')) - 1} days ago</small>
                   </Card.Footer>
                 </Card>
               </Col>

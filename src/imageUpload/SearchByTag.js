@@ -47,7 +47,7 @@ class SearchByTag extends Component {
                   <button type='submit'>Search</button>
                 </form>
                 <Container><br /><br /><br /><br />
-                  <h1> you hav got {this.state.result.length} results </h1>
+                  <h1> you have got {this.state.result.length} results </h1>
                   <br /><br /><br /><br />
                   <Row>
                     {this.state.result.map((image, index) => (
