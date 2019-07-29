@@ -42,7 +42,7 @@ class Tags extends Component {
           {tags}
           <input style={iStyle}
             onKeyUp={(e) => this.onKeyUp(e)}
-            type='text' placeholder='hi'/>
+            type='text' placeholder='Add a new tag'/>
         </div>
       )
     }

@@ -5,10 +5,16 @@ import Tag from './Tags'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Image from 'react-bootstrap/Image'
 
 const listStyle = {
   'display': 'inline-block'
 }
+
+const borderbox = {
+  border: '1px solid red'
+}
+
 class ShowImage extends Component {
     state = {
       image: {}
@@ -29,22 +35,22 @@ class ShowImage extends Component {
     render () {
       return (
         <Container className='center-content'>
-          <Row>
-            <Col xs lg="2">
-              <br /><br /><br />
+          <Row className={borderbox}>
+            <Col>
+              <br />
               <Link to='/display'>Back </Link>
-              <br /><br /><br />
-              <img src={this.state.image.url} alt=""/>
+              <br />
+              <Image src={this.state.image.url} alt="" style={{ padding: '3rem' }} fluid />
             </Col>
             <Col>
               <br /><br /><br />
-              <span>
-                <Tag user={this.props.user} imageId={this.props.imageId}/>
-                <ul style={listStyle}>
+              <div>
+                <ul>
                   {this.state.image.tags ? this.state.image.tags.map((tag, index) =>
-                    <li key={index} style={listStyle}>#{tag.tag}</li>) : 0 }
+                    <li key={index} style={listStyle}>#{tag.tag}</li>) : ' ' }
                 </ul>
-              </span>
+                <Tag user={this.props.user} imageId={this.props.imageId}/>
+              </div>
             </Col>
           </Row>
         </Container>

@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
 import { search } from './api'
+import Card from 'react-bootstrap/Card'
+import Image from 'react-bootstrap/Image'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+
+const frame = {
+  display: 'flex',
+  justifyContent: 'center'
+}
 
 class SearchByTag extends Component {
     state={
@@ -28,23 +38,27 @@ class SearchByTag extends Component {
       }
       render () {
         return (
-          <div><br /><br /><br /><br />
-            <form onSubmit={this.handleSubmit}>
+          <Card><br /><br /><br /><br />
+            <Card.Body>
+              <form onSubmit={this.handleSubmit}>
                 Tag Name :
-              <input onChange={this.handleChange} type="text" name="title" />
-              <button type='submit'>Search</button>
-            </form>
-            <div>
-              <h1> you hav got {this.state.result.length} results </h1>
-              <br /><br /><br /><br />
-              {this.state.result.map((image, index) => (
-                <div key={index}>
-                  <img src={image.url} alt="hey" />
-                </div>
-              ))
-              }
-            </div>
-          </div>
+                <input onChange={this.handleChange} type="text" name="title" />
+                <button type='submit'>Search</button>
+              </form>
+              <Container>
+                <h1> you hav got {this.state.result.length} results </h1>
+                <br /><br /><br /><br />
+                <Row>
+                  {this.state.result.map((image, index) => (
+                    <Col key={index} className={frame}>
+                      <Image src={image.url} alt="no image" style={{ padding: '3rem' }} thumbnail />
+                    </Col>
+                  ))
+                  }
+                </Row>
+              </Container>
+            </Card.Body>
+          </Card>
         )
       }
 }
