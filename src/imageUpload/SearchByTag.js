@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import { search } from './api'
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
-import Col from 'react-bootstrap/Col'
+// import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-const frame = {
-  display: 'flex',
-  justifyContent: 'center'
-}
+// const frame = {
+//   display: 'flex',
+//   justifyContent: 'center',
+//   height: '240px'
+// }
 
 class SearchByTag extends Component {
     state={
@@ -38,29 +39,28 @@ class SearchByTag extends Component {
       }
       render () {
         return (
-          <div style={{ marginTop: '3rem' }}>
-            <Card><br /><br /><br /><br />
-              <Card.Body>
-                <form onSubmit={this.handleSubmit}>
-                Tag Name :
-                  <input onChange={this.handleChange} type="text" name="title" />
-                  <button type='submit'>Search</button>
-                </form>
-                <Container><br /><br /><br /><br />
-                  <h1> you have got {this.state.result.length} results </h1>
-                  <br /><br /><br /><br />
-                  <Row>
-                    {this.state.result.map((image, index) => (
-                      <Col key={index} className={frame}>
-                        <Image src={image.url} alt="no image" style={{ padding: '3rem' }} thumbnail />
-                      </Col>
-                    ))
-                    }
-                  </Row>
-                </Container>
-              </Card.Body>
-            </Card>
-          </div>
+          <Card style={{ marginTop: '3rem', marginBottom: '3rem' }}><br /><br /><br /><br />
+            <Card.Body>
+              <form onSubmit={this.handleSubmit}>
+                <input onChange={this.handleChange} type="text" name="title" placeholder='search by tag' />
+                <button style={{ margin: '1rem' }} type='submit'>Search</button>
+              </form>
+              <Container><br /><br />
+                <h1> you have got {this.state.result.length} results </h1>
+                <br /><br />
+                <Row>
+                  {this.state.result.map((image, index) => (
+                    <Image key={index} src={image.url} alt="no image" style={{ margin: '.5rem',
+                      padding: '1rem',
+                      width: '240px',
+                      height: '240px' }}
+                    thumbnail />
+                  ))
+                  }
+                </Row>
+              </Container>
+            </Card.Body>
+          </Card>
         )
       }
 }

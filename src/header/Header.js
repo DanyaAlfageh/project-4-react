@@ -5,12 +5,10 @@ import './Header.scss'
 
 const authenticatedOptions = (
   <React.Fragment>
+    <Link to="/upload">Upload</Link>
+    <Link to="/display">My Images</Link>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
-    {/* <Link to="/examples">Example</Link>
-    <Link to="/create">Create</Link> */}
-    <Link to="/upload">Images Upload</Link>
-    <Link to="/display">Images Display</Link>
   </React.Fragment>
 )
 
@@ -21,19 +19,15 @@ const unauthenticatedOptions = (
   </React.Fragment>
 )
 
-const alwaysOptions = (
-  <React.Fragment>
-    <Link to="/">Home</Link>
-  </React.Fragment>
-)
-
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>ImagurX</h1>
+    <Link to="/" style={{ textDecoration: 'none',
+      fontSize: '3rem',
+      color: 'red',
+      fontFamily: 'Verdana' }}> ImagurD </Link>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
     </nav>
   </header>
 )

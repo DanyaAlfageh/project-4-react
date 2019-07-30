@@ -33,6 +33,11 @@ class ImagesDisplay extends Component {
         })
         .catch(err => console.log(err))
     }
+    checkCount = (number) => {
+      if (number === 0) return 'Now'
+      else if (number === 1) return ' 1 Day'
+      else return number + ' Days'
+    }
     render () {
       console.log(this.state.images)
       return (
@@ -48,7 +53,7 @@ class ImagesDisplay extends Component {
                     <button onClick={ () => this.destroyHandle(this.props.user, image._id)}>Delete</button>
                   </Card.Body>
                   <Card.Footer>
-                    <small className="text-muted">created {(moment(moment() - moment(image.createdAt)).format('D')) - 1} days ago</small>
+                    <small className="text-muted">created {this.checkCount((moment(moment() - moment(image.createdAt)).format('D')) - 1)}</small>
                   </Card.Footer>
                 </Card>
               </Col>

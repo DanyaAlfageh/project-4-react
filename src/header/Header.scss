@@ -2,11 +2,17 @@ $charcoal: rgb(17, 12, 12);
 
 .main-header {
   align-items: center;
-  border-bottom: 1px solid $charcoal;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: $charcoal;
   color:white;
   display: flex;
-  height: 100px;
+  height: 70px;
   padding: 0 20px;
 
   a,

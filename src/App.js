@@ -16,6 +16,7 @@ import ImageUpload from './imageUpload/ImageUpload'
 import ImageDisplay from './imageUpload/ImagesDisplay'
 import ShowImage from './imageUpload/ShowImage'
 import Search from './imageUpload/SearchByTag'
+import Group from './imageUpload/GroupByTag'
 
 class App extends Component {
   constructor () {
@@ -46,7 +47,7 @@ class App extends Component {
         ))}
         <main className="container">
           <Route exact path='/' render={() => (
-            <Search alert={this.alert} setUser={this.setUser} />
+            <Search alert={this.alert} user={user}/>
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
@@ -80,6 +81,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/display/:id' render={(props) => (
             <ShowImage alert={this.alert} user={user} imageId={props.match.params.id} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/tag/:word' render={(props) => (
+            <Group alert={this.alert} user={user} word={props.match.params.word} />
           )} />
         </main>
       </React.Fragment>

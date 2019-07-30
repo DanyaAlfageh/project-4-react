@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { upload } from './api'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
+// import Row from 'react-bootstrap/Row'
 import { withRouter } from 'react-router-dom'
 
 class ImageUpload extends Component {
@@ -28,25 +27,31 @@ class ImageUpload extends Component {
 
   render () {
     return (
-      <Container className='auth-form'>
-        <Row className="justify-content-lg-center">
-          <Form encType='multipart/form-data'>
-            <Form.Group as={Row} controlId="ImageUpload">
-              <Col sm="2">
-                <Form.Label>Image</Form.Label>
-              </Col>
-              <Col sm="10">
-                <input type="file"
-                  name="image"
-                  onChange={this.fileChangedHandler}/>
-              </Col>
+      <Card style={{ width: '30rem',
+        height: '30rem',
+        marginTop: '3rem',
+        padding: '.3rem',
+        marginBottom: '0',
+        marginRight: 'auto',
+        marginLeft: 'auto' }}>
+        <Card.Body>
+          <Form encType='multipart/form-data' style={{ paddingTop: '10rem',
+            paddingLeft: '1rem',
+            paddingRight: '1rem' }}>
+            <Form.Group controlId="ImageUpload">
+              <Form.Label>Image</Form.Label>
+              <input type="file"
+                name="image"
+                onChange={this.fileChangedHandler}
+                style={{ border: '1px solid grey', padding: '5px' }}
+              />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={this.uploadHandler}>
-          Upload
+              Upload
             </Button>
           </Form>
-        </Row>
-      </Container>
+        </Card.Body>
+      </Card>
     )
   }
 }
