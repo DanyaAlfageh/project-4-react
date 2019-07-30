@@ -92,11 +92,12 @@ class ShowImage extends Component {
                     </li>
                   ) : ' ' }
                 </ul>
-                <div style={cStyle}>
-                  <input style={iStyle}
-                    onKeyUp={(e) => this.onKeyUp(e)}
-                    type='text' placeholder='Add a new tag'/>
-                </div>
+                {!(this.props.user._id === this.state.image.owner) ? ''
+                  : <div style={cStyle}>
+                    <input style={iStyle}
+                      onKeyUp={(e) => this.onKeyUp(e)}
+                      type='text' placeholder='Add a new tag'/>
+                  </div>}
               </div>
             </Col>
           </Row>

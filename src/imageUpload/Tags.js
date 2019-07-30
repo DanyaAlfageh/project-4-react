@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import OneTag from './OneTag'
 import { update } from './api'
 const cStyle = {
   position: 'relative',
@@ -35,8 +36,10 @@ class Tags extends Component {
       }
     }
     render () {
+      const tags = this.state.tags.map((tag, index) => { return <OneTag key={index} value={tag} /> })
       return (
         <div style={cStyle}>
+          {tags}
           <input style={iStyle}
             onKeyUp={(e) => this.onKeyUp(e)}
             type='text' placeholder='Add a new tag'/>

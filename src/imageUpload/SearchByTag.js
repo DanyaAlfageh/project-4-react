@@ -2,15 +2,8 @@ import React, { Component } from 'react'
 import { search } from './api'
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
-// import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-
-// const frame = {
-//   display: 'flex',
-//   justifyContent: 'center',
-//   height: '240px'
-// }
 
 class SearchByTag extends Component {
     state={

@@ -5,6 +5,7 @@ import Image from 'react-bootstrap/Image'
 // import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import { Link } from 'react-router-dom'
 
 class GroupByTag extends Component {
     state={
@@ -31,11 +32,13 @@ class GroupByTag extends Component {
             <Container>
               <Row>
                 {this.state.result.map((image, index) => (
-                  <Image key={index} src={image.url} alt="no image" style={{ margin: '.5rem',
-                    padding: '1rem',
-                    width: '240px',
-                    height: '240px' }}
-                  thumbnail />
+                  <Link key={index} to={`/display/${image._id}`}>
+                    <Image src={image.url} alt="no image" style={{ margin: '.5rem',
+                      padding: '1rem',
+                      width: '240px',
+                      height: '240px' }}
+                    thumbnail />
+                  </Link>
                 ))
                 }
               </Row>
