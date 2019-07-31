@@ -1,4 +1,4 @@
-$charcoal: rgb(17, 12, 12);
+$charcoal: rgb(102, 204, 255);
 
 .main-header {
   align-items: center;
@@ -18,6 +18,9 @@ $charcoal: rgb(17, 12, 12);
   a,
   span {
     font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
     margin: 0 15px;
   }
 }

@@ -5,14 +5,15 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
+import Badge from 'react-bootstrap/Badge'
 
-const cStyle = {
-  position: 'relative',
-  display: 'inline-block',
-  width: '300px',
-  border: '1px solid lightblue',
-  overflow: 'auto'
-}
+// const cStyle = {
+//   position: 'relative',
+//   display: 'inline-block',
+//   width: '300px',
+//   border: '1px solid lightblue',
+//   overflow: 'auto'
+// }
 
 const listStyle = {
   display: 'inline-block',
@@ -22,16 +23,17 @@ const listStyle = {
   padding: '2px'
 }
 
-const borderbox = {
-  border: '1px solid red'
-}
+// const borderbox = {
+//   border: '1px solid red'
+// }
 
 const iStyle = {
   display: 'inline-block',
   fontSize: '0.9em',
-  margin: '5px',
-  width: '90%',
-  border: '0'
+  borderRadius: '5px',
+  margin: 'auto auto 50px 50px',
+  padding: '9px',
+  border: '1px solid rgb(208,208,208)'
 }
 
 class ShowImage extends Component {
@@ -74,15 +76,15 @@ class ShowImage extends Component {
     }
     render () {
       return (
-        <Container style={{ marginTop: '3rem' }}>
-          <Row className={borderbox} >
-            <Col>
+        <Container style={{ margin: '3rem auto', border: '1px solid rgb(208,208,208)' }}>
+          <Row>
+            <Col md='4' style={{ borderRight: '1px solid rgb(208,208,208)', backgroundColor: 'grey' }}>
               <br />
-              <Link to='/display'>Back </Link>
+              <Link to='/display'><Badge variant="primary">Back</Badge></Link>
               <br />
-              <Image src={this.state.image.url} alt="" style={{ padding: '3rem' }} fluid />
+              <Image src={this.state.image.url} alt="" style={{ padding: '3rem', margin: '0 auto' }} fluid />
             </Col>
-            <Col>
+            <Col md='8'>
               <br /><br /><br />
               <div>
                 <ul>
@@ -90,10 +92,10 @@ class ShowImage extends Component {
                     <li key={index} style={listStyle}>
                       <Link to={`/tag/${tag}`}>#{tag}</Link>
                     </li>
-                  ) : ' ' }
+                  ) : <li>No Tags Yet !!!</li> }
                 </ul>
                 {!(this.props.user._id === this.state.image.owner) ? ''
-                  : <div style={cStyle}>
+                  : <div>{/* style={cStyle} */}
                     <input style={iStyle}
                       onKeyUp={(e) => this.onKeyUp(e)}
                       type='text' placeholder='Add a new tag'/>

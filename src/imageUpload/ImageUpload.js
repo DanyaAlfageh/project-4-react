@@ -27,23 +27,21 @@ class ImageUpload extends Component {
 
   render () {
     return (
-      <Card style={{ width: '30rem',
-        height: '30rem',
-        marginTop: '3rem',
-        padding: '.3rem',
-        marginBottom: '0',
-        marginRight: 'auto',
-        marginLeft: 'auto' }}>
+      <Card style={{ width: '70%',
+        height: '90%',
+        margin: '3rem auto',
+        padding: '.3rem' }}>
         <Card.Body>
-          <Form encType='multipart/form-data' style={{ paddingTop: '10rem',
-            paddingLeft: '1rem',
-            paddingRight: '1rem' }}>
+          <Form encType='multipart/form-data' style={{ paddingTop: '7rem',
+            paddingLeft: 'auto',
+            paddingRight: 'auto',
+            margin: 'auto' }}>
             <Form.Group controlId="ImageUpload">
-              <Form.Label>Image</Form.Label>
-              <input type="file"
+              <Form.Label style={{ marginBottom: '2rem' }}><h2>Upload Image</h2></Form.Label><br />
+              <Form.Control type="file"
                 name="image"
                 onChange={this.fileChangedHandler}
-                style={{ border: '1px solid grey', padding: '5px' }}
+                style={{ marginBottom: '1rem', padding: '.4rem', border: '1px solid rgb(208,208,208)' }}
               />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={this.uploadHandler}>

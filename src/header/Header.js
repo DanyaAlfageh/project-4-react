@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import './Header.scss'
 
 const authenticatedOptions = (
@@ -23,7 +22,7 @@ const Header = ({ user }) => (
   <header className="main-header">
     <Link to="/" style={{ textDecoration: 'none',
       fontSize: '3rem',
-      color: 'red',
+      color: 'white',
       fontFamily: 'Verdana' }}> ImagurD </Link>
     <nav>
       { user && <span>Welcome, {user.email}</span>}

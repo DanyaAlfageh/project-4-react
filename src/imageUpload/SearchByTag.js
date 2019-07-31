@@ -4,6 +4,9 @@ import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Col from 'react-bootstrap/Col'
 
 class SearchByTag extends Component {
     state={
@@ -28,27 +31,41 @@ class SearchByTag extends Component {
               result: request
             })
           })
-          .catch(err => console.log(err))
+          .catch((err) => {
+            console.log(err)
+            alert('No result was found. Pleaase search again!')
+            this.setState({
+              tag: '',
+              result: []
+            })
+          })
       }
       render () {
         return (
           <Card style={{ marginTop: '3rem', marginBottom: '3rem' }}><br /><br /><br /><br />
             <Card.Body>
-              <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChange} type="text" name="title" placeholder='search by tag' />
-                <button style={{ margin: '1rem' }} type='submit'>Search</button>
-              </form>
-              <Container><br /><br />
-                <h1> you have got {this.state.result.length} results </h1>
-                <br /><br />
+              <Form onSubmit={this.handleSubmit}>
                 <Row>
-                  {this.state.result.map((image, index) => (
-                    <Image key={index} src={image.url} alt="no image" style={{ margin: '.5rem',
-                      padding: '1rem',
-                      width: '240px',
-                      height: '240px' }}
-                    thumbnail />
-                  ))
+                  <Col>
+                    <Form.Control onChange={this.handleChange} type="text" name="title" placeholder='search by tag' value={this.state.tag}/>
+                  </Col>
+                  <Col>
+                    <Button style={{ marginLeft: '.4rem' }} type='submit' variant="primary" >Search</Button>
+                  </Col>
+                </Row>
+              </Form>
+              <Container style={{ marginTop: '1rem' }}>
+                <Row>
+                  {!this.state.result ? <p></p>
+                    : this.state.result.map((image, index) => (
+                      <Image key={index} src={image.url} alt="no image" style={{ margin: '.5rem',
+                        padding: '1rem',
+                        width: '240px',
+                        height: '240px' }}
+                      thumbnail
+                      onClick={() => window.open(image.url, '_blank')}
+                      />
+                    ))
                   }
                 </Row>
               </Container>

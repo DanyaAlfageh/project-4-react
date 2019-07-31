@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { changePassword } from '../api'
 import messages from '../messages'
 
+import { Form, Button, Card, Col, Row } from 'react-bootstrap'
+
 class ChangePassword extends Component {
   constructor () {
     super()
@@ -37,29 +39,41 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <form className='auth-form' onSubmit={this.onChangePassword}>
-        <h3>Change Password</h3>
-
-        <label htmlFor="oldpw">Old Password</label>
-        <input
-          required
-          name="oldPassword"
-          value={oldPassword}
-          type="password"
-          placeholder="Old Password"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="newPassword">New Password</label>
-        <input
-          required
-          name="newPassword"
-          value={newPassword}
-          type="password"
-          placeholder="New Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Change Password</button>
-      </form>
+      <Card style={{ width: '70%',
+        height: '90%',
+        margin: '5% auto',
+        position: 'absloute' }}>
+        <Card.Body style={{ marginTop: '5%' }}>
+          <Form onSubmit={this.onChangePassword}>
+            <h3>Change Password</h3>
+            <Row style={{ margin: '5%' }}>
+              <Col sm='3'><Form.Label htmlFor="oldpw">Old Password</Form.Label></Col>
+              <Col sm='8'><Form.Control
+                required
+                name="oldPassword"
+                value={oldPassword}
+                type="password"
+                placeholder="Old Password"
+                onChange={this.handleChange}
+              /></Col></Row>
+            <Row style={{ margin: '5%' }}>
+              <Col sm='3'><Form.Label htmlFor="newPassword">New Password</Form.Label></Col>
+              <Col sm='8'><Form.Control
+                required
+                name="newPassword"
+                value={newPassword}
+                type="password"
+                placeholder="New Password"
+                onChange={this.handleChange}
+              /></Col></Row>
+            <Button variant="primary" type="submit" style={{ display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              position: 'relative',
+              margin: ' 3rem auto' }}>Change Password</Button>
+          </Form>
+        </Card.Body>
+      </Card>
     )
   }
 }
